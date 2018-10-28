@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Stock Dashboard</li>
+{% endblock %}
+
+{% block content %}
+  <table class="table table-striped mb-4">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>MarketCap</th>
+        <th>Sector</th>
+          <th>Industry</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for stock in stock %}
+        <tr>
+          <td>
+            <a href="{%url 'details' stock.symbol %}">{{ stock.symbol }}</a>
+          </td>
+          <td class="align-middle">
+            {{ stock.name }}
+          </td>
+          <td class="align-middle">
+            {{ stock.marketcap }}
+          </td>
+          <td class="align-middle">
+            {{stock.sector}}
+          </td>
+            <td class="align-middle">
+            {{stock.industry}}
+          </td>
+        </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+{% include 'includes/pagination.html' %}
+{% endblock %}

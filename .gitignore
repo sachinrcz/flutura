@@ -31,3 +31,4 @@ webpack-bundle.json
 *.csv
 *.txt
 *.sqlite3
+*.ipynb

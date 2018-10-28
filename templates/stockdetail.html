@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  {{ stock.name}}
+{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Stocks</a></li>
+  <li class="breadcrumb-item active">{{ stock.name }}</li>
+{% endblock %}
+
+{% block content %}
+
+
+  <table class="table table-striped mb-4">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Date</th>
+        <th>Open</th>
+        <th>High</th>
+        <th>Low</th>
+        <th>Close</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for h in history %}
+
+        <tr>
+          <td class="align-middle">{{ h.date}}</td>
+          <td class="align-middle">{{ h.open }}</td>
+          <td class="align-middle">{{ h.high }}</td>
+          <td class="align-middle">{{ h.low }}</td>
+          <td class="align-middle">{{ h.close }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+{% endblock %}
